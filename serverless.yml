@@ -1,0 +1,48 @@
+org: esolano
+app: finalproj
+
+service: Stock-Watchlist-App
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-1
+  environment:
+    DYNAMODB_TABLE: StockWatchList
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+
+custom:
+  wsgi:
+    app: app.app
+  pythonRequirements:
+    dockerizePip: true  
+    slim: true          
+    strip: false        
+    zip: true           
+
+functions:
+  api:
+    image: 905418479060.dkr.ecr.us-east-1.amazonaws.com/stockwatchlist:latest
+    events:
+      - http:
+          path: /
+          method: ANY
+
+resources:
+  Resources:
+    StockWatchListTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: StockWatchList
+        AttributeDefinitions:
+          - AttributeName: Symbol
+            AttributeType: S
+        KeySchema:
+          - AttributeName: Symbol
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
