@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Stock Watchlist{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/homepage_img.jpg') }}" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold text-body-emphasis">Welcome to Stock Watchlist Site</h1>
+        <div class="col-lg-6 mx-auto">
+            
+          <p class="lead mb-4">Are you tired of constantly monitoring the stock market to track your favorite stocks? 
+            Our Stock Watchlist App is here to make your life easier. 
+            With our app, you can effortlessly keep track of stock prices and receive instant notifications when they hit your desired target. 
+            Whether you're a seasoned investor or just starting out, our app is designed to help you make informed investment decisions with ease.</p>
+          <h2 class="lead mb-4"><strong>Why Choose Us?</strong></h2>
+          <ul class="lead mb-4">
+            <li><strong>Real-Time Alerts:</strong> Get notified the moment your target price is reached, so you never miss an opportunity.</li>
+            <li><strong>User-Friendly Interface:</strong> Enjoy a seamless experience with our intuitive and easy-to-use platform.</li>
+            <li><strong>Comprehensive Tracking:</strong> Monitor the performance of all your favorite stocks in one place.</li>
+            <li><strong>Secure and Reliable:</strong> Trust in a platform that prioritizes your data security and reliability.</li>
+          </ul>
+          <h3>Get Started Today!</h3>
+          <p>Join our community of savvy investors and take control of your financial future. It's simple and quick to get started. Create an account or log in to begin tracking your stocks today.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="{{ url_for('create_account') }}" class="btn btn-primary btn-lg px-4 gap-3">Create Account</a>
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
+
+          </div>
+        </div>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
